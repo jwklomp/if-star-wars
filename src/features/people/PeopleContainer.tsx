@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
+import { Else, If, Then } from "react-if";
+import { isNotNil } from "ramda";
 //
 import { fetchPeopleData } from "./peopleService.ts";
 import { Person } from "./peopleTypes.ts";
@@ -26,7 +28,16 @@ const PeopleContainer: React.FC = () => {
     };
   }, [setPeople]);
 
-  return <PeopleListView people={people} />;
+  return (
+    <If condition={isNotNil(people)}>
+      <Then>
+        <PeopleListView people={people} />
+      </Then>
+      <Else>
+        <p>Loading data...</p>
+      </Else>
+    </If>
+  );
 };
 
 export default PeopleContainer;
