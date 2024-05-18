@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RecoilRoot } from "recoil";
-
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 //
 import App from "./App.tsx";
 import "./index.css";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const CLIENT_ID = import.meta.env.VITE_REACT_APP_GOOGLE_CLIENT_ID;
 

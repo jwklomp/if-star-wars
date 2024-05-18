@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
-
+//
 import { fetchPeopleData } from "./peopleService.ts";
 import { Person } from "./peopleTypes.ts";
 import { peopleState } from "./peopleAtom.ts";
