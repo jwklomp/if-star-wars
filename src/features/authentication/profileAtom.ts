@@ -1,10 +1,6 @@
 import { atom } from "recoil";
-
-export interface Profile {
-  picture: string;
-  name: string;
-  email: string;
-}
+//
+import { Profile } from "./profileTypes.ts";
 
 export const profileAtom = atom<Profile | null>({
   key: "profileAtom",

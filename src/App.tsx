@@ -5,7 +5,8 @@ import { isNil, isNotNil } from "ramda";
 import viteLogo from "/vite.svg";
 import reactLogo from "./assets/react.svg";
 import LoginButton from "./features/authentication/LoginButton";
-import UserProfile from "./features/authentication/UserProfile";
+import LogoutButton from "./features/authentication/LogoutButton.tsx";
+import UserProfileContainer from "./features/authentication/UserProfileContainer.tsx";
 import { userAtom } from "./features/authentication/userAtom.ts";
 import PeopleContainer from "./features/people/PeopleContainer.tsx";
 import { errorAtom } from "./features/authentication/errorAtom.ts";
@@ -26,7 +27,6 @@ function App() {
 
   const handleLoginError = (error: unknown) => {
     setError(`Login Failed: ${error as string}`);
-    console.log("Login Failed:", error);
   };
 
   const handleLogout = () => {
@@ -48,10 +48,12 @@ function App() {
         <Case condition={isNotNil(user) && isNil(error)}>
           {() => (
             <>
-              <UserProfile
-                accessToken={user!.access_token}
-                onLogout={handleLogout}
-              />
+              <div className="card">
+                <UserProfileContainer accessToken={user!.access_token} />
+                <div className="ms-auto">
+                  <LogoutButton onLogout={handleLogout} />
+                </div>
+              </div>
               <div className="card">
                 <PeopleContainer />
               </div>

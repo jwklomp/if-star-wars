@@ -22,7 +22,7 @@ const LoginButton: React.FC<LoginButtonProps> = ({
 
   return (
     <button type="button" className="btn btn-dark" onClick={handleLoginClick}>
-      Sign in with Google 🚀
+      Sign in with Google
     </button>
   );
 };
