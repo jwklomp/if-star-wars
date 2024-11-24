@@ -4,7 +4,7 @@ interface Props {
   people: Array<Person>;
 }
 
-export const PeopleListView = ({ people }: Props) => (
+export const PeopleTableView = ({ people }: Props) => (
   <div className="container">
     <h2 className="header">Star Wars Characters</h2>
     <table className="table table-striped">

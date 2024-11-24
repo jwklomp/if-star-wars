@@ -6,7 +6,7 @@ import { isNotNil } from "ramda";
 import { fetchPeopleData } from "./peopleService.ts";
 import { Person } from "./peopleTypes.ts";
 import { peopleState } from "./peopleAtom.ts";
-import { PeopleListView } from "./PeopleListView.tsx";
+import { PeopleTableView } from "./PeopleTableView.tsx";
 
 const PeopleContainer: React.FC = () => {
   const [people, setPeople] = useRecoilState<Array<Person>>(peopleState);
@@ -22,16 +22,12 @@ const PeopleContainer: React.FC = () => {
     };
 
     fetchData().then(() => console.log("Data fetched"));
-
-    return () => {
-      // Cleanup function
-    };
   }, [setPeople]);
 
   return (
     <If condition={isNotNil(people)}>
       <Then>
-        <PeopleListView people={people} />
+        <PeopleTableView people={people} />
       </Then>
       <Else>
         <p>Loading data...</p>

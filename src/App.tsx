@@ -12,6 +12,7 @@ import PeopleContainer from "./features/people/PeopleContainer.tsx";
 import { errorAtom } from "./features/authentication/errorAtom.ts";
 //
 import "./App.css";
+import StarshipsContainer from "./features/starships/StarshipsContainer.tsx";
 
 interface User {
   access_token: string;
@@ -47,21 +48,24 @@ function App() {
       <Switch>
         <Case condition={isNotNil(user) && isNil(error)}>
           {() => (
-            <>
-              <div className="card">
-                <UserProfileContainer accessToken={user!.access_token} />
-                <div className="ms-auto">
-                  <LogoutButton onLogout={handleLogout} />
+              <>
+                <div className="card">
+                  <UserProfileContainer accessToken={user!.access_token}/>
+                  <div className="ms-auto">
+                    <LogoutButton onLogout={handleLogout}/>
+                  </div>
                 </div>
-              </div>
-              <div className="card">
-                <PeopleContainer />
-              </div>
-            </>
+                <div className="card">
+                  <PeopleContainer/>
+                </div>
+                <div className="card">
+                  <StarshipsContainer/>
+                </div>
+              </>
           )}
         </Case>
         <Case condition={isNil(user) && isNil(error)}>
-          <p>Login to access Star Wars Characters</p>
+        <p>Login to access Star Wars Characters</p>
           <LoginButton
             onLoginSuccess={handleLoginSuccess}
             onLoginError={handleLoginError}
