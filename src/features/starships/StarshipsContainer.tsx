@@ -8,7 +8,8 @@ import { Starship } from "./starshipTypes.ts";
 import { starshipsState } from "./starshipsAtom.ts";
 
 const StarshipsContainer: React.FC = () => {
-  const [starships, setStarships] = useRecoilState<Array<Starship>>(starshipsState);
+  const [starships, setStarships] =
+    useRecoilState<Array<Starship>>(starshipsState);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,12 +24,16 @@ const StarshipsContainer: React.FC = () => {
     fetchData().then(() => console.log("Data fetched"));
   }, [setStarships]);
 
-  return <List<Starship>
+  return (
+    <List<Starship>
       header={<h2>List of starships</h2>}
       items={starships}
-      renderItem={(starship: Starship) => `${starship.name} --- ${starship.manufacturer}`}
+      renderItem={(starship: Starship) =>
+        `${starship.name} --- ${starship.manufacturer}`
+      }
       empty={<p>No starships available</p>}
-  />;
+    />
+  );
 };
 
 export default StarshipsContainer;

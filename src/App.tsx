@@ -48,24 +48,24 @@ function App() {
       <Switch>
         <Case condition={isNotNil(user) && isNil(error)}>
           {() => (
-              <>
-                <div className="card">
-                  <UserProfileContainer accessToken={user!.access_token}/>
-                  <div className="ms-auto">
-                    <LogoutButton onLogout={handleLogout}/>
-                  </div>
+            <>
+              <div className="card">
+                <UserProfileContainer accessToken={user!.access_token} />
+                <div className="ms-auto">
+                  <LogoutButton onLogout={handleLogout} />
                 </div>
-                <div className="card">
-                  <PeopleContainer/>
-                </div>
-                <div className="card">
-                  <StarshipsContainer/>
-                </div>
-              </>
+              </div>
+              <div className="card">
+                <PeopleContainer />
+              </div>
+              <div className="card">
+                <StarshipsContainer />
+              </div>
+            </>
           )}
         </Case>
         <Case condition={isNil(user) && isNil(error)}>
-        <p>Login to access Star Wars Characters</p>
+          <p>Login to access Star Wars Characters</p>
           <LoginButton
             onLoginSuccess={handleLoginSuccess}
             onLoginError={handleLoginError}

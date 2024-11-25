@@ -1,6 +1,6 @@
 import ky from "ky";
 //
-import {Starship} from "./starshipTypes.ts";
+import { Starship } from "./starshipTypes.ts";
 
 interface ApiResponse {
   results: Array<Starship>;
