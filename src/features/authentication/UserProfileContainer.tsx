@@ -23,10 +23,6 @@ const UserProfileContainer: React.FC<UserProfileProps> = ({ accessToken }) => {
     };
 
     fetchData().then(() => console.log("Data fetched"));
-
-    return () => {
-      // Cleanup function
-    };
   }, [setProfile]);
 
   if (!profile) {
