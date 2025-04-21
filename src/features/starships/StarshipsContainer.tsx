@@ -31,7 +31,7 @@ const StarshipsContainer: React.FC = () => {
       renderItem={(starship: Starship) =>
         `${starship.name} --- ${starship.manufacturer}`
       }
-      empty={<p>No starships available</p>}
+      empty={<p>Loading data...</p>}
     />
   );
 };

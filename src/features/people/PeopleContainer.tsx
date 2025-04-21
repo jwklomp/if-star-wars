@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { Else, If, Then } from "react-if";
-import { isNotNil } from "ramda";
+import { isNotEmpty, isNotNil } from "ramda";
 //
 import { fetchPeopleData } from "./peopleService.ts";
 import { Person } from "./peopleTypes.ts";
@@ -25,7 +25,7 @@ const PeopleContainer: React.FC = () => {
   }, [setPeople]);
 
   return (
-    <If condition={isNotNil(people)}>
+    <If condition={isNotNil(people) && isNotEmpty(people)}>
       <Then>
         <PeopleTableView people={people} />
       </Then>
